@@ -1,7 +1,7 @@
 import json
 import os
 class MissingPersonReport:
-    def init(self, filename='missing_persons.json'):
+    def __init__(self, filename='missing_persons.json'):
         self.filename = filename
         self.reports = self.load_reports()
     def load_reports(self):
