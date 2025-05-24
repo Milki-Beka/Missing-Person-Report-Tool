@@ -24,7 +24,9 @@ How to Set Up and Run the Project
 * Open the terminal in VS Code: Click View → Terminal, or press Ctrl + ~.
 * Run the program with:
 * Follow the on-screen menu options.
+
 Main Features
+
 * Search by full name and date to find an existing missing person report.
 * Submit a new report if someone is missing and not already listed.
 * Check if someone is looking for you (for the missing person themselves).
