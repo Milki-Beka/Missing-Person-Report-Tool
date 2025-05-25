@@ -22,7 +22,6 @@ def submit_report(reports):
         "date_missed": input("Date or year they went missing: "),
         "reporter_name": input("Your name: "),
         "relationship": input("Relationship to the missing person: "),
-        "email": input("Your email: "),
         "phone": input("Your phone number: "),
         "address": input("Your address: "),
         "submission_date":input("enter reported date: ")
@@ -34,11 +33,12 @@ def submit_report(reports):
 def search_missing_person(reports):
     print("\n--- Search for a Missing Person ---")
     name = input("Enter full name of missing person: ").strip().lower()
+    age = input("Enter age of missing person: ").strip()
     found = False
     for report in reports:
-        if report["full_name"].strip().lower() == name:
+        if report["full_name"].strip().lower() == name and report["age"].strip() == age:
             found = True
-            print("\n--- ✅ Report found with this name. We hope you find them safe and sound. ---")
+            print("\n--- ✅ Report found with this name and age. We hope you find them safe and sound. ---")
             for key, value in report.items():
                 print(f"{key.replace('_', ' ').title()}: {value}")
     if not found:
@@ -48,15 +48,15 @@ def search_missing_person(reports):
 def missing_person_search_self(reports):
     print("\n--- I'm the Missing Person ---")
     name = input("Enter your full name: ").strip().lower()
+    age = input("Enter your age: ").strip()
     date = input("Enter the year or date you went missing: ").strip()
     found = False
     for report in reports:
-        if report["full_name"].strip().lower() == name and report["date_missed"].strip() == date:
+        if report["full_name"].strip().lower() == name and report["date_missed"].strip() == date and report["age"].strip() == age:
             found = True
-            print("\n 🎉 Congratulations! Someone is looking for you with a similar name and date.")
+            print("\n 🎉 Congratulations! Someone is looking for you with a similar name, age and date.")
             print(f"Reported by: {report['reporter_name']}")
             print(f"Relationship: {report['relationship']}")
-            print(f"Email: {report['email']}")
             print(f"Phone: {report['phone']}")
             print(f"Address: {report['address']}")
     if not found:
@@ -94,7 +94,7 @@ def main():
             view_all_reports(reports)
         elif choice == "5":
             save_data(reports)
-            print("/n🙏 Thank you for using the Missing Person Report System.")
+            print("\n🙏 Thank you for using the Missing Person Report System.")
             print("👋 Goodbye, and good luck in your search.\n")
             break
         else:
