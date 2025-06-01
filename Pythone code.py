@@ -7,7 +7,7 @@ def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r") as file:
             return json.load(file)
-   return []
+    return []
 
 def save_data(data):
     with open(DATA_FILE, "w") as file:
