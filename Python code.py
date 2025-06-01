@@ -34,9 +34,10 @@ def search_missing_person(reports):
     print("\n--- Search for a Missing Person ---")
     name = input("Enter full name of missing person: ").strip().lower()
     age = input("Enter age of missing person: ").strip()
+    date = input("Enter the year or date they went missing: ").strip()
     found = False
     for report in reports:
-        if report["full_name"].strip().lower() == name and report["age"].strip() == age:
+        if report["full_name"].strip().lower() == name and report["age"].strip() == age and report["date_missed"].strip() == date:
             found = True
             print("\n--- ✅ Report found with this name and age. We hope you find them safe and sound. ---")
             for key, value in report.items():
