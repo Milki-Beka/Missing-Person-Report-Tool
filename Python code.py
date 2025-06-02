@@ -100,4 +100,23 @@ def main():
         else:
             print("Invalid option. Please try again.")
 
-main()
+main()  
+def delete_report(reports):
+    print("\n--- Delete a Report ---")
+    name = input("Enter missing person's name: ").lower()
+    phone = input("Enter your phone number (to verify): ").strip()
+    
+    for report in reports[:]:
+        if (report["full_name"].lower() == name and 
+            report["phone"].strip() == phone):
+            reports.remove(report)
+            print("✅ Report deleted.")
+            return
+    
+    print("❌ No matching report found or verification failed.")
+and add on functon def an other option like given below
+# Add to main menu:
+# print("5. Delete a report")
+# elif choice == "5": 
+delete_report(reports) 
+save_data(reports)
